@@ -152,7 +152,10 @@ const game = Vue.createApp({
       let second = this.puzzle[secondIndex];
 
       let mainDataOrder = main.order;
-      let secondDataOrder = second.order;
+      let secondDataOrder;
+      if (second.order) {
+        secondDataOrder = second.order;
+      }
       if (
         second &&
         second.empty &&
@@ -182,8 +185,10 @@ const game = Vue.createApp({
       let second = this.puzzle[secondIndex];
 
       let mainDataOrder = main.order;
-      let secondDataOrder = second.order;
-
+      let secondDataOrder;
+      if (second.order) {
+      secondDataOrder = second.order;
+      }
       if (
         second &&
         second.empty &&
@@ -213,7 +218,10 @@ const game = Vue.createApp({
       let second = this.puzzle[secondIndex];
 
       let mainDataOrder = main.order;
-      let secondDataOrder = second.order;
+      let secondDataOrder;
+      if (second.order) {
+        secondDataOrder = second.order;
+      }
 
       if (
         second &&
@@ -244,7 +252,10 @@ const game = Vue.createApp({
       let second = this.puzzle[secondIndex];
 
       let mainDataOrder = main.order;
-      let secondDataOrder = second.order;
+      let secondDataOrder;
+      if (second.order) {
+      secondDataOrder = second.order;
+      }
 
       if (
         second &&
