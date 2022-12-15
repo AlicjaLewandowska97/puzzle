@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poiret One', cursive;
+}
+
+header {
+    position: fixed;
+    inset: 0 0 90vh 0;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: coral; */
+    border-bottom: 2px solid rgba(253,101,133,1);
+    color: rgba(209,0,116,1);
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+main.game {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(253,101,133,1) 0%, rgba(255,211,165,1) 90% );
+    
+}
+
+section.space {
+    /* height: 100%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playboard {
+    width: clamp(300px, 90vw, 500px);
+    height: clamp(300px, 90vw, 500px);
+    /* border: 5px solid rgb(146, 52, 8); */
+    display: flex;
+    flex-wrap: wrap;
+    background-image: linear-gradient( 109.6deg,  rgba(209,0,116,1) 11.2%, rgba(110,44,107,1) 91.1% );
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: gap .2s ease-in-out;
+    gap: 0%;
+    position: relative;
+}
+
+.playboard.active {
+    gap: 1%;
+}
+
+/* .playboard:not(.active):after {
+    content: "";
+    position: absolute;
+    background-image: url('/imgs/full.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10;
+    inset: 4.5%;
+} */
+
+.result {
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    font-size: 2rem;
+    color: rgba(110,44,107,1);
+    text-align: center;
+    animation: winning 1s ease-in-out 1;
+}
+
+@keyframes winning{
+    0%{
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+
+    }
+    100%{
+        transform: scale(1);
+    }
+  }
+.el {
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    /* color: coral; */
+    webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+    cursor:move;
+    /* background-position: center;
+    background-size: contain; */
+    transition: width .2s ease-in-out, height .2s ease-in-out;
+    background-size: 300%;
+}
+
+.el.active {
+    width: calc((100% - 2%) / 3);
+    height: calc((100% - 2%) / 3);
+}
+
+.el:nth-child(1) {
+    background-position: top left;
+}
+.el:nth-child(2) {
+    background-position: top center;
+}
+.el:nth-child(3) {
+    background-position: top right;
+}
+.el:nth-child(4) {
+    background-position: top 50% left;
+}
+.el:nth-child(5) {
+    background-position: top 50% center;
+}
+.el:nth-child(6) {
+    background-position: top 50% right;
+}
+.el:nth-child(7) {
+    background-position: bottom left;
+}
+.el:nth-child(8) {
+    background-position: bottom center;
+}
+.el:nth-child(9) {
+    background-position: bottom right;
+}
+
+
+.el[data-order='1'] {
+    order: 1
+}
+.el[data-order='2'] {
+    order: 2
+}
+.el[data-order='3'] {
+    order: 3
+}
+.el[data-order='4'] {
+    order: 4
+}
+.el[data-order='5'] {
+    order: 5
+}
+.el[data-order='6'] {
+    order: 6
+}
+.el[data-order='7'] {
+    order: 7
+}
+.el[data-order='8'] {
+    order: 8
+}
+.el[data-order='9'] {
+    order: 9
+}
+
+.button-wrap {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+    width: clamp(300px, 90vw, 500px);
+
+}
+button {
+    all: revert;
+    border-radius: 0.7rem;
+    padding: 0.8rem 1rem;
+    background: none;
+    background-image: linear-gradient( 315deg, rgb(230 230 230 / 41%) 11.2%, rgb(187 187 187 / 25%) 59.5% );
+    border: 2px solid rgba(209,0,116,1);
+    color: rgba(209,0,116,1);
+    font-family: 'Poiret One', cursive;
+    cursor: pointer;
+    font-size: clamp(17px, 4vw, 2rem);
+    transition: .2s;
+    flex-basis: 48.5%;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: rgba(209,0,116,1);
+    color: white;
+}
+
+
+.moveRight {
+    animation: moveRight .8s ease 1;
+}
+@keyframes moveRight{
+    0%{
+      transform: translateX(-100%);
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }

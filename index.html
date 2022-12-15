@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzle - Vue App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Puzzle</h1>
+    </header>
+    <main class="game">
+        <section @mouseup="calculateDistances" @touchend="calculateDistancesMobile" class="space">
+            <div :class="boardView">
+                <div :class="imgView" :id='value.id' :style="{ backgroundImage: value.empty ? 'none' : 'url(' + image + ')' }" v-for="(value, key, index) in puzzle" :data-order="value.order" @mousedown="clickOnDiv" @touchstart="clickOnDivMobile"></div>
+            </div>
+        </section>
+        <div class="result" v-if="gameStatus == 'won'">You finally won!<br>Pet congrats!</div>
+        <div class="button-wrap">
+          <button @click="gameStart">{{ buttonTxt }}</button>
+          <button @click="reloadImage">Change image</button>
+        </div>
+    </main>
+  </body>
+</html>
