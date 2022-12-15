@@ -5,6 +5,10 @@
     font-family: 'Poiret One', cursive;
 }
 
+body {
+    touch-action: none;
+}
+
 header {
     position: fixed;
     inset: 0 0 90vh 0;
