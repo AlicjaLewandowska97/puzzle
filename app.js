@@ -1,7 +1,7 @@
 const game = Vue.createApp({
   data() {
     return {
-      images: ['./imgs/1.jpg', './imgs/screenshot.2.jpg', './imgs/screenshot.3.jpg', './imgs/screenshot.4.jpg', './imgs/screenshot.5.jpg', './imgs/screenshot.6.jpg', './imgs/screenshot.7.jpg', './imgs/screenshot.8.jpg', './imgs/screenshot.9.jpg'],
+      images: ['/imgs/1.jpg', '/imgs/screenshot.2.jpg', '/imgs/screenshot.3.jpg', '/imgs/screenshot.4.jpg', '/imgs/screenshot.5.jpg', '/imgs/screenshot.6.jpg', '/imgs/screenshot.7.jpg', '/imgs/screenshot.8.jpg', '/imgs/screenshot.9.jpg'],
       image: '',
       puzzle: [
         {
@@ -142,6 +142,10 @@ const game = Vue.createApp({
       }
     },
     moveElementRight() {
+      if (Number(this.movedElementOrder) + 1 < 1 || Number(this.movedElementOrder) + 1 > 9) {
+        return
+      }
+
       let mainIndex = this.puzzle.findIndex(
         (item) => item.order == this.movedElementOrder
       );
@@ -175,6 +179,9 @@ const game = Vue.createApp({
       this.checkMatch();
     },
     moveElementLeft() {
+      if (Number(this.movedElementOrder) - 1 < 1 || Number(this.movedElementOrder) - 1 > 9) {
+        return
+      }
       let mainIndex = this.puzzle.findIndex(
         (item) => item.order == this.movedElementOrder
       );
@@ -208,6 +215,9 @@ const game = Vue.createApp({
       this.checkMatch();
     },
     moveElementDown() {
+      if (Number(this.movedElementOrder) + 3 < 1 || Number(this.movedElementOrder) + 3 > 9) {
+        return
+      }
       let mainIndex = this.puzzle.findIndex(
         (item) => item.order == this.movedElementOrder
       );
@@ -242,10 +252,15 @@ const game = Vue.createApp({
       this.checkMatch();
     },
     moveElementUp() {
+      if (Number(this.movedElementOrder) - 3 < 1 || Number(this.movedElementOrder) - 3 > 9) {
+        return
+      }
+
       let mainIndex = this.puzzle.findIndex(
         (item) => item.order == this.movedElementOrder
       );
       let main = this.puzzle[mainIndex];
+      
       let secondIndex = this.puzzle.findIndex(
         (item) => item.order == Number(this.movedElementOrder) - 3
       );
