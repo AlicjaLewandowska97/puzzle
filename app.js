@@ -109,6 +109,10 @@ const game = Vue.createApp({
       for (let index = 0; index < this.puzzle.length; index++) {
         this.puzzle[index].order = index + 1        
       }
+      this.shuffeledElementA = 9
+
+      console.log('reload');
+      console.log('a ' + this.shuffeledElementA);
 
     },
     clickOnDiv(event) {
@@ -304,9 +308,18 @@ const game = Vue.createApp({
       }
     },
     gameStart() {
-      this.gameStatus = "started";
+      console.log('start the game');
+
+      if (this.gameStatus == "started") {
+        this.shuffeledElementA = this.puzzle[8].order;
+        console.log('shuffled ' + this.shuffeledElementA);
+      } else {
+        this.gameStatus = "started";
+        console.log('started ' + this.shuffeledElementA);
+      }
+
       for (let index = 0; index < 40; index++) {
-        if (index == 0) {
+        if (this.shuffeledElementA == '') {
           this.shuffledOrders = [6, 8]
         } else {
           if (this.shuffeledElementA == 9) {
@@ -352,11 +365,15 @@ const game = Vue.createApp({
         (item) => item.order == this.shuffeledElementB
       );
 
+      console.log('a ' + this.shuffeledElementA);
+      console.log('b ' + this.shuffeledElementB);
       this.puzzle[aId].order = this.shuffeledElementB
       this.puzzle[bId].order = this.shuffeledElementA
-
+      
       this.shuffeledElementA = this.shuffeledElementB
       this.shuffeledElementB = ''
+      console.log('a ' + this.shuffeledElementA);
+      console.log('b ' + this.shuffeledElementB);
 
     }
   },
