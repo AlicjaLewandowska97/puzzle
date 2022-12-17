@@ -24,7 +24,7 @@
                 <div :class="imgView" :id='value.id' :style="{ backgroundImage: value.empty ? 'none' : 'url(' + image + ')' }" v-for="(value, key, index) in puzzle" :data-order="value.order" @mousedown="clickOnDiv" @touchstart="clickOnDivMobile"></div>
             </div>
         </section>
-        <div class="result" v-if="gameStatus == 'won'">{{ wonTxt }}</div>
+        <div class="result" v-if="gameStatus == 'won'" v-html="wonTxt"></div>
         <div class="button-wrap">
           <button @click="gameStart">{{ buttonTxt }}</button>
           <button @click="reloadImage">Change image</button>
