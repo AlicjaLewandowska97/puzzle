@@ -1,7 +1,7 @@
 const game = Vue.createApp({
   data() {
     return {
-      images: ['./imgs/1.jpg', './imgs/screenshot.2.jpg', './imgs/screenshot.3.jpg', './imgs/screenshot.4.jpg', './imgs/screenshot.5.jpg', './imgs/screenshot.6.jpg', './imgs/screenshot.7.jpg', './imgs/screenshot.8.jpg', './imgs/screenshot.9.jpg'],
+      images: ['./imgs/1.jpg', './imgs/screenshot.2.jpg', './imgs/screenshot.3.jpg', './imgs/screenshot.4.jpg', './imgs/screenshot.5.jpg', './imgs/screenshot.6.jpg', './imgs/screenshot.7.jpg', './imgs/screenshot.8.jpg', './imgs/screenshot.9.jpg', './imgs/screenshot.10.jpg', './imgs/screenshot.11.jpg', './imgs/screenshot.12.jpg', './imgs/screenshot.13.jpg', './imgs/screenshot.14.jpg', './imgs/screenshot.15.jpg', './imgs/screenshot.16.jpg', './imgs/screenshot.17.jpg', './imgs/screenshot.18.jpg', './imgs/screenshot.19.jpg', './imgs/screenshot.20.jpg', './imgs/screenshot.21.jpg', './imgs/screenshot.22.jpg', './imgs/screenshot.23.jpg', './imgs/screenshot.24.jpg', './imgs/screenshot.25.jpg', './imgs/screenshot.26.jpg'],
       image: '',
       puzzle: [
         {
