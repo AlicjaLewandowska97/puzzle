@@ -65,6 +65,7 @@ const game = Vue.createApp({
       shuffledOrders: [],
       shuffeledElementA: '',
       shuffeledElementB: '',
+      preview: false,
     };
   },
   watch: {
@@ -101,6 +102,36 @@ const game = Vue.createApp({
         return "Try again!";
       }
     },
+    wonTxt() {
+      return 'You finally won!<br>Pet congrats!'
+    },
+    previewSvg() {
+      if (this.preview == true) {
+        return (`
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_105_2)">
+        <path d="M29.8846 14.4808C27.1731 9.00008 21.5192 5.19238 15 5.19238C8.48079 5.19238 2.82694 9.00008 0.115403 14.4808C-0.0576735 14.827 -0.0576735 15.2308 0.115403 15.5193C2.82694 21.0001 8.48079 24.8078 15 24.8078C21.5192 24.8078 27.1731 21.0001 29.8846 15.5193C30.0577 15.1732 30.0577 14.827 29.8846 14.4808ZM15 21.3462C11.4808 21.3462 8.65386 18.5193 8.65386 15.0001C8.65386 11.4808 11.4808 8.65392 15 8.65392C18.5192 8.65392 21.3462 11.4808 21.3462 15.0001C21.3462 18.5193 18.5192 21.3462 15 21.3462Z" fill="#D10074"/>
+        <path d="M15 10.9617C12.75 10.9617 10.9615 12.7501 10.9615 15.0001C10.9615 17.2501 12.75 19.0386 15 19.0386C17.25 19.0386 19.0385 17.2501 19.0385 15.0001C19.0385 12.7501 17.25 10.9617 15 10.9617Z" fill="#D10074"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_105_2">
+        <rect width="30" height="30" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>
+        `)
+      } else {
+        return (`
+        <svg width="30px" height="30px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" fill="white" fill-opacity="0.01"/>
+        <path d="M6 16C6.63472 17.2193 7.59646 18.3504 8.82276 19.3554C12.261 22.1733 17.779 24 24 24C30.221 24 35.739 22.1733 39.1772 19.3554C40.4035 18.3504 41.3653 17.2193 42 16" stroke="#D10074" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28.9777 24L31.0482 31.7274" stroke="#D10074" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M37.3535 21.3536L43.0104 27.0104" stroke="#D10074" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4.99998 27.0104L10.6568 21.3536" stroke="#D10074" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.9276 31.7274L18.9982 24" stroke="#D10074" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`)
+      }
+    }
   },
   methods: {
     reloadImage() {
@@ -364,6 +395,9 @@ const game = Vue.createApp({
       this.shuffeledElementA = this.shuffeledElementB
       this.shuffeledElementB = ''
 
+    },
+    changePreview() {
+      this.preview = !this.preview
     }
   },
   created() {
@@ -371,4 +405,4 @@ const game = Vue.createApp({
   }
 });
 
-game.mount(".game");
+game.mount("#app");
