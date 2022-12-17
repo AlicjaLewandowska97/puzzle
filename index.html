@@ -10,17 +10,21 @@
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
   </head>
-  <body>
+  <body id="app">
     <header>
       <h1>Puzzle</h1>
+      <div class="preview">
+        <div class="previev-svg" @click='changePreview' v-html="previewSvg"></div>
+        <div class="preview-img" v-show="preview"><img :src="image" alt=""></div>
+      </div>
     </header>
-    <main class="game">
+    <main class="game" :style="{opacity: preview ? '.6' : '1'}">
         <section @mouseup="calculateDistances" @touchend="calculateDistancesMobile" class="space">
             <div :class="boardView">
                 <div :class="imgView" :id='value.id' :style="{ backgroundImage: value.empty ? 'none' : 'url(' + image + ')' }" v-for="(value, key, index) in puzzle" :data-order="value.order" @mousedown="clickOnDiv" @touchstart="clickOnDivMobile"></div>
             </div>
         </section>
-        <div class="result" v-if="gameStatus == 'won'">You finally won!<br>Pet congrats!</div>
+        <div class="result" v-if="gameStatus == 'won'">{{ wonTxt }}</div>
         <div class="button-wrap">
           <button @click="gameStart">{{ buttonTxt }}</button>
           <button @click="reloadImage">Change image</button>
