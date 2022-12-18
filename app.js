@@ -336,11 +336,11 @@ const game = Vue.createApp({
       }
     },
     gameStart() {
-      if (this.gameStatus == "started") {
+      console.log('start');
+      if (this.gameStatus == "started" || this.gameStatus == "won") {
         this.shuffeledElementA = this.puzzle[8].order;
-      } else {
-        this.gameStatus = "started";
       }
+        this.gameStatus = "started";
 
       for (let index = 0; index < 40; index++) {
         if (this.shuffeledElementA == '') {
@@ -388,12 +388,15 @@ const game = Vue.createApp({
       let bId = this.puzzle.findIndex(
         (item) => item.order == this.shuffeledElementB
       );
-
+      console.log(this.shuffeledElementA);
+      console.log(this.shuffeledElementB);
       this.puzzle[aId].order = this.shuffeledElementB
       this.puzzle[bId].order = this.shuffeledElementA
       
       this.shuffeledElementA = this.shuffeledElementB
       this.shuffeledElementB = ''
+      console.log(this.shuffeledElementA);
+      console.log(this.shuffeledElementB);
 
     },
     changePreview() {
