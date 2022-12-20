@@ -18,7 +18,8 @@
         <div class="preview-img" v-show="preview"><img :src="image" alt=""></div>
       </div>
     </header>
-    <main class="game" :style="{opacity: preview ? '.6' : '1'}">
+    <main class="game">
+      <div class="back" v-show="preview" @click="changePreview"></div>
         <section @mouseup="calculateDistances" @touchend="calculateDistancesMobile" class="space">
             <div :class="boardView">
                 <div :class="imgView" :id='value.id' :style="{ backgroundImage: value.empty ? 'none' : 'url(' + image + ')' }" v-for="(value, key, index) in puzzle" :data-order="value.order" @mousedown="clickOnDiv" @touchstart="clickOnDivMobile"></div>
