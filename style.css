@@ -16,7 +16,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: coral; */
     border-bottom: 2px solid rgba(253,101,133,1);
     color: #d10074;
     padding: 1rem;
@@ -92,17 +91,6 @@ section.space {
 .playboard.active {
     gap: 1%;
 }
-
-/* .playboard:not(.active):after {
-    content: "";
-    position: absolute;
-    background-image: url('/imgs/full.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 10;
-    inset: 4.5%;
-} */
 
 .result {
     font-family: 'Poiret One', cursive;
@@ -261,3 +249,11 @@ button:hover {
       transform: translateX(0);
     }
   }
+
+.back {
+    position: fixed;
+    inset: 0;
+    opacity: .6;
+    z-index: 1;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(253,101,133,1) 0%, rgba(255,211,165,1) 90% );
+}
