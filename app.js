@@ -340,6 +340,8 @@ const game = Vue.createApp({
         this.shuffeledElementA = this.puzzle[8].order;
       }
         this.gameStatus = "started";
+      console.log(this.gameStatus)
+      console.log(this.shuffeledElementA)
 
       for (let index = 0; index < 40; index++) {
         if (this.shuffeledElementA == '') {
