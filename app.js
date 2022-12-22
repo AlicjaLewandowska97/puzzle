@@ -336,7 +336,7 @@ const game = Vue.createApp({
       }
     },
     gameStart() {
-      console.log(this.goodItemsCounter);
+      console.log('good' + this.goodItemsCounter);
       if (this.gameStatus == "started" || this.gameStatus == "won") {
         this.shuffeledElementA = this.puzzle[8].order;
       }
